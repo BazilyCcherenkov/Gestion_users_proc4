@@ -175,10 +175,6 @@ flowchart LR
 ```
 --- 
 
-¡Por supuesto! Aquí tienes la advertencia sobre el archivo `.htaccess` para incluir en la documentación:
-
----
-
 ## ⚠️ **Solución a errores de conexión en Apache/Nginx**
 
 Si se experimenta **errores al acceder al sistema** o redireccionamientos inesperados en el navegador, **es posible que el archivo `.htaccess` esté causando conflictos**. Algunas configuraciones de servidores web o sistemas preconfigurados `Laragon` pueden no admitir ciertas reglas de reescritura.

@@ -109,6 +109,74 @@ Un sistema completo desarrollado en **PHP puro**, con interfaz en **HTML, CSS y 
 
 ---
 
+## Modelo fisico de relaciones y entidades
+
+```mermaid 
+erDiagram
+    USUARIOS {
+        int id PK
+        varchar(100) nombre
+        varchar(100) correo UK
+        varchar(255) password
+        timestamp creado_en
+    }
+
+    ROLES {
+        int id PK
+        varchar(50) nombre UK
+        text descripcion
+    }
+
+    USUARIO_ROL {
+        int usuario_id PK,FK
+        int rol_id PK,FK
+    }
+
+    USUARIOS ||--o{ USUARIO_ROL : "tiene"
+    ROLES ||--o{ USUARIO_ROL : "asignado a"
+```
+---
+## MER 
+
+```mermaid
+flowchart LR
+    %% Entidades principales
+    U[Usuarios]
+    R[Roles]
+    
+    %% Atributos como entidades ovales
+    U_ID([id])
+    U_NOMBRE([nombre])
+    U_CORREO([correo])
+    U_PASSWORD([password])
+    U_CREADO([creado_en])
+    
+    R_ID([id])
+    R_NOMBRE([nombre])
+    R_DESC([descripcion])
+    
+    %% Relación como diamante
+    REL{{"Tiene"}}
+    
+    %% Conexiones con cardinalidades
+    U --- |"N"| REL
+    REL --- |"M"| R
+    
+    %% Conexiones a atributos
+    U_ID --- U
+    U_NOMBRE --- U
+    U_CORREO --- U
+    U_PASSWORD --- U
+    U_CREADO --- U
+    
+    R_ID --- R
+    R_NOMBRE --- R
+    R_DESC --- R
+```
+
+
+
+---
 ## 🎨 Personalización
 
 Puedes editar:

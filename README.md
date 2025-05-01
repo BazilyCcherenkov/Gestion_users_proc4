@@ -173,8 +173,34 @@ flowchart LR
     R_NOMBRE --- R
     R_DESC --- R
 ```
+--- 
 
+¡Por supuesto! Aquí tienes la advertencia sobre el archivo `.htaccess` para incluir en la documentación:
 
+---
+
+## ⚠️ **Solución a errores de conexión en Apache/Nginx**
+
+Si se experimenta **errores al acceder al sistema** o redireccionamientos inesperados en el navegador, **es posible que el archivo `.htaccess` esté causando conflictos**. Algunas configuraciones de servidores web o sistemas preconfigurados `Laragon` pueden no admitir ciertas reglas de reescritura.
+
+### **Solución:**
+1. **Eliminar o renombrar `.htaccess`**
+   ```bash
+   mv .htaccess htaccess_backup
+   ```
+2. **Reiniciar el servidor web**  
+   Si usas Apache:
+   ```bash
+   sudo service apache2 restart
+   ```
+   Si usas Nginx:
+   ```bash
+   sudo service nginx restart
+   ```
+ 3. Reiniciar el servidor apache en Laragon
+   click derecho (reiniciar apache)
+
+Esta configuracion deveria solucionar cualquier problema referente al redireccionamiento inicial inesperado (si es que hay).
 
 ---
 ## 🎨 Personalización
